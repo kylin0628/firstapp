@@ -11,6 +11,8 @@ export default class Page1 extends Component {
                 <Button style={styles.button} title={'GO BACK'} onPress={() => {
                     navigation.goBack();
                 }}/>
+                <Button title={'open drawer'} onPress={()=>navigation.openDrawer()}/>
+                <Button title={'close drawer'} onPress={()=>navigation.closeDrawer()}/>
             </View>
         )
     }
@@ -19,13 +21,11 @@ export default class Page1 extends Component {
 
 const styles = StyleSheet.create({
     view: {
-        width: 200,
-        height: 200,
         color: 'blue',
         backgroundColor: 'powderblue',
         fontWeight: 'bold',
         fontSize: 50,
-        alignItems: 'center',
+        alignItems: 'flex-end',
         justifyContent: 'space-around',
     },
     red: {

@@ -58,11 +58,9 @@ export default class Main extends Component {
         const {navigation} = this.props;
         return (
             <View style={{
-                width: 500,
-                flexDirection: 'row',
+                flexDirection: 'column',
                 backgroundColor: 'darkgray',
                 margin: 20,
-                alignItems: 'flex-end'
             }}>
                 <Text>Main</Text>
                 <Button
@@ -83,11 +81,34 @@ export default class Main extends Component {
                         navigation.navigate('Page3', {name: 'devio'})
                     }}
                 />
+                <Button
+                    title={'go to Page4'}
+                    onPress={() => {
+                        navigation.navigate('Page4')
+                    }}
+                />
+                <Button
+                    title={'go to Bottom'}
+                    onPress={() => {
+                        navigation.navigate('Bottom')
+                    }}
+                />
+
+                <Button
+                    title={'go to Top'}
+                    onPress={() => {
+                        navigation.navigate('Top')
+                    }}
+                />
+                <Button
+                    title={'go to DrawerNav'}
+                    onPress={() => {
+                        navigation.navigate('DrawerNav')
+                    }}
+                />
             </View>
         )
     }
-
-
 }
 
 export function sum(a, b) {
