@@ -29,6 +29,35 @@ export default class Main extends Component {
 
     componentWillMount(): void {
         console.log("--------------componentWillMount--------------")
+        console.log("--------------getMoviesFromApi()--------------" + this.getMoviesFromApi())
+        // getMoviesFromApi();
+    }
+
+
+// 注意这个方法前面有async关键字
+    async getMoviesFromApi() {
+        try {
+            fetch('https://mywebsite.com/endpoint/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'key1=value1&key2=value2',
+            }).then((response) => {
+                console.log("test", response.json())
+                response.json()
+            })
+                .then((responseJson) => {
+                    console.log("test", responseJson)
+                    return responseJson.movies;
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+            ;
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     componentDidMount(): void {
@@ -88,6 +117,18 @@ export default class Main extends Component {
                     }}
                 />
                 <Button
+                    title={'go to Page5'}
+                    onPress={() => {
+                        navigation.navigate('Page5')
+                    }}
+                />
+                <Button
+                    title={'go to Page6'}
+                    onPress={() => {
+                        navigation.navigate('Page6')
+                    }}
+                />
+                <Button
                     title={'go to Bottom'}
                     onPress={() => {
                         navigation.navigate('Bottom')
@@ -104,6 +145,12 @@ export default class Main extends Component {
                     title={'go to DrawerNav'}
                     onPress={() => {
                         navigation.navigate('DrawerNav')
+                    }}
+                />
+                <Button
+                    title={'go to EzbHomePage'}
+                    onPress={() => {
+                        navigation.navigate('EzbHomePage')
                     }}
                 />
             </View>

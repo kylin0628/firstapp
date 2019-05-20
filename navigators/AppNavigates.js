@@ -14,6 +14,9 @@ import Main from "../js/Main";
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Page4 from "../js/Page4";
+import Page5 from "../js/Page5";
+import Page6 from "../js/Page6";
+import EzbHomePage from "../js/EzbHomePage";
 
 const AppTopNavigator = createMaterialTopTabNavigator({
         Page1: {
@@ -160,27 +163,39 @@ export const AppStackNavigator = createStackNavigator({
             title: "this is page2"
         }))
     },
-    // Page3: {
-    //     screen: Page3,
-    //     navigationOptions: ((props) => {
-    //         const {navigation} = props;
-    //         const {state, setParams} = navigation;
-    //         const {params} = state;
-    //         return {
-    //             title: params.title ? params.title : 'this is page3',
-    //             headerRight: (
-    //                 <Button
-    //                     title={params.mode === 'edit' ? '保存' : '编辑'}
-    //                     onPress={() => setParams({mode: params.mode === 'edit' ? '' : 'edit'})}
-    //                 />
-    //             )
-    //         }
-    //     })
-    // },
+    Page3: {
+        screen: Page3,
+        navigationOptions: ((props) => {
+            const {navigation} = props;
+            const {state, setParams} = navigation;
+            const {params} = state;
+            return {
+                title: params.title ? params.title : 'this is page3',
+                headerRight: (
+                    <Button
+                        title={params.mode === 'edit' ? '保存' : '编辑'}
+                        onPress={() => setParams({mode: params.mode === 'edit' ? '' : 'edit'})}
+                    />
+                )
+            }
+        })
+    },
     Page4:{
       screen:Page4,
       navigationOptions:{
           title:'page 4'
+      }
+    },
+    Page5:{
+      screen:Page5,
+      navigationOptions:{
+          title:'page 5'
+      }
+    },
+    Page6:{
+      screen:Page6,
+      navigationOptions:{
+          title:'page 6'
       }
     },
     Bottom: {
@@ -199,6 +214,12 @@ export const AppStackNavigator = createStackNavigator({
         screen:AppDrawerNav,
         navigationOptions:{
             title:'AppDrawerNav'
+        }
+    },
+    EzbHomePage:{
+        screen:EzbHomePage,
+        navigationOptions:{
+            title:'EzbHomePage'
         }
     }
 });

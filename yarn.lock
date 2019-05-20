@@ -4933,6 +4933,11 @@ react-native-safe-area-view@^0.13.0:
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
+react-native-scale-size@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.npm.taobao.org/react-native-scale-size/download/react-native-scale-size-0.1.5.tgz#7837ef95b66955469c807bc3062e4cb78cb4d42d"
+  integrity sha1-eDfvlbZpVUacgHvDBi5Mt4y01C0=
+
 "react-native-screens@^1.0.0 || ^1.0.0-alpha":
   version "1.0.0-alpha.22"
   resolved "https://registry.npm.taobao.org/react-native-screens/download/react-native-screens-1.0.0-alpha.22.tgz#7a120377b52aa9bbb94d0b8541a014026be9289b"
