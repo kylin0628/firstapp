@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {Text, View, Button} from 'react-native';
+import {Text, View, Button,StatusBar} from 'react-native';
 
 var name = '王奇';
 var age = '22';
@@ -8,16 +8,10 @@ export default class Main extends Component {
 
     static defaultProps = {
         name: '小米'
-    }
-
-    // static propTypes={
-    //     name:PropTypes.string,
-    // }
-
+    };
 
     constructor(props) {
-        super(props)
-        console.log("--------------constructor--------------")
+        super(props);
         this.state = {
             count: 0
         }
@@ -27,60 +21,6 @@ export default class Main extends Component {
         return this.state.count;
     }
 
-    componentWillMount(): void {
-        console.log("--------------componentWillMount--------------")
-        console.log("--------------getMoviesFromApi()--------------" + this.getMoviesFromApi())
-        // getMoviesFromApi();
-    }
-
-
-// 注意这个方法前面有async关键字
-    async getMoviesFromApi() {
-        try {
-            fetch('https://mywebsite.com/endpoint/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: 'key1=value1&key2=value2',
-            }).then((response) => {
-                console.log("test", response.json())
-                response.json()
-            })
-                .then((responseJson) => {
-                    console.log("test", responseJson)
-                    return responseJson.movies;
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
-            ;
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-    componentDidMount(): void {
-        console.log("--------------componentDidMount--------------")
-    }
-
-    componentWillReceiveProps(nextProps: Readonly<P>, nextContext: any): void {
-        console.log("--------------componentWillReceiveProps--------------")
-    }
-
-    shouldComponentUpdate(nextProps: Readonly<P>, nextState: Readonly<S>, nextContext: any): boolean {
-        console.log("--------------shouldComponentUpdate--------------")
-        return true;
-    }
-
-    componentWillUpdate(nextProps: Readonly<P>, nextState: Readonly<S>, nextContext: any): void {
-        console.log("--------------componentWillUpdate--------------")
-    }
-
-    componentWillUnmount(): void {
-        console.log("--------------componentWillUnmount--------------")
-    }
-
 
     render() {
         console.log("--------------render--------------")
@@ -88,9 +28,15 @@ export default class Main extends Component {
         return (
             <View style={{
                 flexDirection: 'column',
-                backgroundColor: 'darkgray',
-                margin: 20,
+                backgroundColor: '#ce3533',
+                padding: 20,
             }}>
+                {/*<StatusBar*/}
+                {/*    animated={true} //指定状态栏的变化是否应以动画形式呈现。目前支持这几种样式：backgroundColor, barStyle和hidden*/}
+                {/*    hidden={true}  //是否隐藏状态栏。*/}
+                {/*    backgroundColor={'red'} //状态栏的背景色*/}
+                {/*    translucent={false}//指定状态栏是否透明。设置为true时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。*/}
+                {/*/>*/}
                 <Text>Main</Text>
                 <Button
                     title={'go to page1'}
