@@ -22,6 +22,7 @@ export default class Page1 extends Component {
                 inputValue={this.state.inputValue}
                 list={this.state.list}
             />
+
         )
     }
 
