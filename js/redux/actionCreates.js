@@ -1,4 +1,5 @@
-import {ADD_ITEM, CHANGE_INPUT, DELETE_ITEM} from "./actionTypes";
+import {ADD_ITEM, CHANGE_INPUT, DELETE_ITEM, GET_LIST} from "./actionTypes";
+import store from "./index";
 
 /**
  * @desc   :
@@ -20,3 +21,20 @@ export const changeInputAction = (text) => ({
     type: CHANGE_INPUT,
     value: text
 });
+
+export const getListAction = (data) => ({
+    type: GET_LIST,
+    value: data
+});
+
+export const getList = () => {
+    return (dispatch)=>{
+        fetch('https://www.easy-mock.com/mock/5d47c218b5f64d04f7a07da9/firstapp/user/test')
+            .then((response) => response.json())
+            .then((res) => {
+                console.log(res)
+                const data = res.data.list;
+                dispatch(getListAction(data));
+            })
+    }
+}

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, FlatList, TextInput, TouchableOpacity, Dimensions} from 'react-native';
 import store from "./redux";
-import {addItemAction, changeInputAction, delteItemAction} from "./redux/actionCreates";
+import {addItemAction, changeInputAction, delteItemAction, getList, getListAction} from "./redux/actionCreates";
 import {Page1Ui} from './ui/Page1Ui'
 
 
@@ -42,6 +41,18 @@ export default class Page1 extends Component {
 
     storeChange = () => {
         this.setState(store.getState())
+    }
+
+    componentDidMount(): void {
+        this._postTestData()
+    }
+
+    /**
+     * 接口数据获取使用redux更新数据, 中间件使用redux-thunk。
+     * @private
+     */
+    _postTestData = () => {
+        store.dispatch(getList())
     }
 
 }
