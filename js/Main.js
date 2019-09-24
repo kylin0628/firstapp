@@ -1,5 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {Text, View, Button,StatusBar} from 'react-native';
+import RNIdle from 'react-native-idle'
+
 
 var name = '王奇';
 var age = '22';
@@ -97,6 +99,18 @@ export default class Main extends Component {
                     title={'go to EzbHomePage'}
                     onPress={() => {
                         navigation.navigate('EzbHomePage')
+                    }}
+                />
+                <Button
+                    title={'保持屏幕常亮'}
+                    onPress={() => {
+                        RNIdle.disableIdleTimer();
+                    }}
+                />
+                <Button
+                    title={'退出屏幕常亮'}
+                    onPress={() => {
+                        RNIdle.enableIdleTimer();
                     }}
                 />
             </View>
